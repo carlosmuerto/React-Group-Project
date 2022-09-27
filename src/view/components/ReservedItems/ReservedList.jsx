@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import ReservedItem from './ReservedItem';
 import './Reserved.scss';
 
-const ReservedList = ({ ReservedListLabels }) => (
+const ReservedList = ({ ReservedListLabels, title }) => (
   <section className="reserved-list">
-    <h4>My Missions</h4>
+    <h4>{title}</h4>
     <div className="list-container">
       {ReservedListLabels.map((label) => (
         <ReservedItem
@@ -18,6 +18,7 @@ const ReservedList = ({ ReservedListLabels }) => (
 
 ReservedList.propTypes = {
   ReservedListLabels: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default ReservedList;

@@ -13,8 +13,8 @@ const ProfilePage = () => {
   ];
   return (
     <main className="app-profile">
-      <ReservedList ReservedListLabels={ReservedmissionLabels} />
-      <ReservedList ReservedListLabels={ReservedRocketLabels} />
+      <ReservedList title="My Missions" ReservedListLabels={ReservedmissionLabels} />
+      <ReservedList title="My Rockets" ReservedListLabels={ReservedRocketLabels} />
     </main>
   );
 };

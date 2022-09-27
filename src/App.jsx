@@ -1,60 +1,45 @@
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
 import React from 'react';
-import logo from './logo.svg';
-import Counter from './features/counter/Counter';
-import './App.css';
+import Header from './view/components/Header/header';
+import RocketsPage from './view/pages/Rockets/Rockets';
+import ProfilePage from './view/pages/Profile/Profile';
+import MissionsPage from './view/pages/Missions/Missions';
 
+const links = [
+  {
+    path: '/',
+    text: 'Rockets',
+    element: (<RocketsPage />),
+  },
+  {
+    path: '/Missions',
+    text: 'Missions',
+    element: (<MissionsPage />),
+  },
+  {
+    path: '/Profile',
+    text: 'Profile',
+    element: (<ProfilePage />),
+  },
+];
 const App = () => (
   <div className="app">
-    <header className="app-header">
-      <img src={logo} className="app-logo" alt="logo" />
-      <Counter />
-      <p>
-        Edit
-        {' '}
-        <code>src/App.js</code>
-        {' '}
-        and save to reload.
-      </p>
-      <span>
-        <span>Learn </span>
-        <a
-          className="app-link"
-          href="https://reactjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React
-        </a>
-        <span>, </span>
-        <a
-          className="app-link"
-          href="https://redux.js.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Redux
-        </a>
-        <span>, </span>
-        <a
-          className="app-link"
-          href="https://redux-toolkit.js.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Redux Toolkit
-        </a>
-        ,
-        <span> and </span>
-        <a
-          className="app-link"
-          href="https://react-redux.js.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React Redux
-        </a>
-      </span>
-    </header>
+    <Router>
+      <Header links={links} />
+      <Routes>
+        {links.map((link) => (
+          <Route
+            key={`RouteTo:${link.text}`}
+            path={link.path}
+            element={link.element}
+          />
+        ))}
+      </Routes>
+    </Router>
   </div>
 );
 

@@ -1,6 +1,9 @@
+import MissionsList from '../../components/Missions/MissionsList';
+import './Missions.scss';
+
 const MissionsPage = () => (
   <main className="app-missions">
-    <h1>Missions</h1>
+    <MissionsList />
   </main>
 );
 

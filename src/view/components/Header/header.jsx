@@ -1,10 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { FaUser } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import './header.scss';
+import planet from './planet.png';
 
 const Header = ({ links }) => (
   <header className="app-header">
+    <div className="logo">
+      <img src={planet} alt="logo" />
+    </div>
     <h3>Space Travelers Hub</h3>
     <nav>
       {links.map((link) => (
@@ -19,9 +22,6 @@ const Header = ({ links }) => (
         </div>
       ))}
     </nav>
-    <button className="icon-button" type="button">
-      <span className="material-icons primary-color"><FaUser /></span>
-    </button>
   </header>
 );
 

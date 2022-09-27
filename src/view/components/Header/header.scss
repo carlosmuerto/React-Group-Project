@@ -7,8 +7,25 @@
   grid-gap: 40px;
   gap: 40px;
 
+  .logo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: calc(1rem + 24px);
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
   h3 {
     color: #0290ff;
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 
   .icon-button {
@@ -29,6 +46,7 @@
     align-items: center;
     justify-content: space-around;
     gap: 40px;
+    margin-left: auto;
 
     a {
       text-decoration: none;
@@ -42,10 +60,11 @@
       gap: 40px;
 
       .nav-link {
+        line-height: 1rem;
+        font-size: 1rem;
         display: block;
         opacity: 0.5;
         color: #121212;
-        text-transform: uppercase;
 
         &.nav-link.active {
           opacity: 1;

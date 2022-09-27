@@ -5,7 +5,7 @@ import './header.scss';
 
 const Header = ({ links }) => (
   <header className="app-header">
-    <h3>Header</h3>
+    <h3>Space Travelers Hub</h3>
     <nav>
       {links.map((link) => (
         <div className="nav-links" key={`NavLinkTo${link.text}`}>

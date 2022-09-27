@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-import '@fontsource/montserrat';
 import './header.scss';
 
 const Header = ({ links }) => (

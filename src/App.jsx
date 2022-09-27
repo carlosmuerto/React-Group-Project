@@ -16,14 +16,14 @@ const links = [
     element: (<RocketsPage />),
   },
   {
-    path: '/',
-    text: 'Profile',
-    element: (<ProfilePage />),
-  },
-  {
-    path: '/',
+    path: '/Missions',
     text: 'Missions',
     element: (<MissionsPage />),
+  },
+  {
+    path: '/Profile',
+    text: 'Profile',
+    element: (<ProfilePage />),
   },
 ];
 const App = () => (

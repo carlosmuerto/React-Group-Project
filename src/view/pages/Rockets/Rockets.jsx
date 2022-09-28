@@ -1,6 +1,7 @@
 import Rocket from '../../components/Rocket/rocket';
 import rocketsListMock from './RocketMock';
 import './rocket.css';
+
 const RocketsPage = () => {
   const rockets = rocketsListMock.map((rocketMock) => ({
     id: rocketMock.id,

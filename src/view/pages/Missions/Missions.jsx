@@ -1,9 +1,9 @@
-import fetchMission from '../../../features/mission/MissionAPI';
+import MissionsList from '../../components/Missions/MissionsList';
+import './Missions.scss';
 
 const MissionsPage = () => (
   <main className="app-missions">
-    <h1>Missions</h1>
-    <button type="button" onClick={fetchMission}>btn</button>
+    <MissionsList />
   </main>
 );
 

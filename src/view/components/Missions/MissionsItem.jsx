@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import * as missionRedux from '../../../features/mission/MissionSlice';
 import './MissionsList.scss';
 
 const MissionsItem = ({
@@ -7,9 +9,10 @@ const MissionsItem = ({
   description,
   reserved,
 }) => {
+  const dispatch = useDispatch();
   const onClick = () => {
-    // eslint-disable-next-line no-console
-    console.log(id);
+    if (reserved) dispatch(missionRedux.leave(id));
+    else dispatch(missionRedux.reserve(id));
   };
   return (
     <tr>

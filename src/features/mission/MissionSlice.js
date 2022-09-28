@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { pull } from 'lodash';
 import fetchMission from './MissionAPI';
 import loadingStatus from '../reduxConst';
 
@@ -22,8 +23,11 @@ const missionSlice = createSlice({
   name: ACTION_PREPEND,
   initialState,
   reducers: {
-    reserve: (state) => {
-      state.resserved.push(['recerved']);
+    reserve: (state, action) => {
+      state.resserved.push(action.payload);
+    },
+    leave: (state, action) => {
+      pull(state.resserved, action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -38,7 +42,7 @@ const missionSlice = createSlice({
   },
 });
 
-const { reserve } = missionSlice.actions;
+const { reserve, leave } = missionSlice.actions;
 
 const selectMissions = (state) => state.missions.all;
 const selectResserved = (state) => state.missions.resserved;
@@ -46,6 +50,7 @@ const selectloadingStatus = (state) => state.missions.status;
 
 export {
   reserve,
+  leave,
   fetch,
   selectMissions,
   selectResserved,

@@ -1,7 +1,25 @@
-const RocketsPage = () => (
-  <main className="app-rockets">
-    <h1>Rockets</h1>
-  </main>
-);
+import Rocket from '../../components/Rocket/rocket';
+import rocketsListMock from './RocketMock';
+import './rocket.css';
 
+const RocketsPage = () => {
+  const rockets = rocketsListMock.map((rocketMock) => ({
+    id: rocketMock.id,
+    rocketName: rocketMock.rocket_name,
+    description: rocketMock.description,
+    flickrImages: rocketMock.flickr_images,
+  }));
+  // eslint-disable-next-line no-console
+  console.log(rockets);
+
+  return (
+    <div className="rockets-container">
+      {rockets.map((rocket) => (
+        <Rocket key={`rockets-item-${rocket.id}`} rocket={rocket} />
+      ))}
+    </div>
+  );
+};
+/*
+*/
 export default RocketsPage;

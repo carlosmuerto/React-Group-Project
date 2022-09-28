@@ -1,0 +1,80 @@
+.missions-list {
+  box-sizing: border-box;
+  margin: 1rem;
+  border: 1px solid #a9a9a9;
+  overflow: hidden;
+  border-radius: 1rem;
+
+  table {
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+
+    .name {
+      width: 5rem;
+    }
+
+    .description {
+      width: 60%;
+    }
+
+    .status {
+      text-align: center;
+
+      .mission-status-label {
+        background-color: #a9a9a9;
+        color: white;
+        border-radius: 1rem;
+        font-size: 1rem;
+        line-height: 1rem;
+        padding: 0.25rem;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &.reserved {
+          background-color: cadetblue;
+        }
+      }
+    }
+
+    .recerve-btn {
+      text-align: center;
+
+      button {
+        text-align: center;
+        box-sizing: border-box;
+        background-color: transparent;
+        padding: 0.75rem;
+        border: 2px solid #a9a9a9;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+
+        &.reserved {
+          color: red;
+          border: 2px solid red;
+        }
+      }
+    }
+
+    tbody > * > * + *,
+    thead > * > * + * {
+      border-left: 1px solid #a9a9a9;
+    }
+
+    tbody > * + *,
+    thead > * + * {
+      border-top: 1px solid #a9a9a9;
+    }
+
+    tbody > * > *,
+    thead > * > * {
+      padding: 0.5rem;
+    }
+
+    thead > *,
+    tbody > *:nth-child(even) {
+      background-color: #e2e2e2;
+    }
+  }
+}

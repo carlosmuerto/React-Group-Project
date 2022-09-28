@@ -57,19 +57,23 @@
       }
     }
 
-    > * > * + * {
+    tbody > * > * + *,
+    thead > * > * + * {
       border-left: 1px solid #a9a9a9;
     }
 
-    > * + * {
+    tbody > * + *,
+    thead > * + * {
       border-top: 1px solid #a9a9a9;
     }
 
-    > * > * {
+    tbody > * > *,
+    thead > * > * {
       padding: 0.5rem;
     }
 
-    > *:nth-child(odd) {
+    thead > *,
+    tbody > *:nth-child(even) {
       background-color: #e2e2e2;
     }
   }

@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import missionsReducer from '../features/mission/MissionSlice';
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    missions: missionsReducer,
   },
 });
 

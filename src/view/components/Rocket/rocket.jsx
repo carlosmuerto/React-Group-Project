@@ -9,16 +9,16 @@ const Rocket = ({ rocket }) => {
   } = rocket;
   const [image, setImage] = useState(flickrImages[0]);
   return (
-    <div className="rocket-card">
+    <div className="rockets">
       <img src={image} alt={rocketName} />
-      <div className="rocket-info">
+      <div className="rocket-description">
         <h2>{rocketName}</h2>
         <p>
-          {reserved ? (<p className="reserve">Reserved</p>) : null}
+          {reserved ? (<p className="button-reserve">Reserved</p>) : null}
           {description}
         </p>
         {/* reserve button */}
-        <button type="button" className={reserved ? 'cancel' : 'reserved'} onClick={() => setReserved(!reserved)}>
+        <button type="button" className={reserved ? 'button-cancel' : 'button-reserved'} onClick={() => setReserved(!reserved)}>
           {reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
         </button>
       </div>

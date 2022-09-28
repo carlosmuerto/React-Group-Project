@@ -2,23 +2,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import MissionsItem from './MissionsItem';
 import * as missionRedux from '../../../features/mission/MissionSlice';
-import loadingStatus from '../../../features/reduxConst';
 import './MissionsList.scss';
-/*
 
-    id: missions.mission_id,
-    name: missions.mission_name,
-    description: missions.description,
-
-*/
 const MissionsList = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(missionRedux.selectloadingStatus);
   const missions = useSelector(missionRedux.selectMissions);
+  const recerved = useSelector(missionRedux.selectResserved);
 
   useEffect(() => {
-    if (loading === loadingStatus.idle) dispatch(missionRedux.fetch());
-  }, [dispatch, loading]);
+    dispatch(missionRedux.fetch());
+  }, [dispatch]);
   return (
     <section className="missions-list">
       {missions.length > 0 ? (
@@ -32,13 +25,13 @@ const MissionsList = () => {
             </tr>
           </thead>
           <tbody>
-            {missions.map((mission, index) => (
+            {missions.map((mission) => (
               <MissionsItem
                 key={`missions-item-${mission.id}`}
                 name={mission.name}
                 description={mission.description}
                 id={mission.id}
-                reserved={index % 2 === 0}
+                reserved={recerved.includes(mission.id)}
               />
             ))}
           </tbody>

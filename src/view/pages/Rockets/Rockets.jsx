@@ -1,19 +1,10 @@
-import fetchRocket from '../../../features/rockets/RocketAPI';
+import RocketsList from '../../components/Rocket/rocketsList';
 import './rocket.css';
 
 const RocketsPage = () => (
   <div className="rockets-container">
-    <fetchRocket />
-    </div>
+    <RocketsList />
+  </div>
 );
 
 export default RocketsPage;
-
-
-
-
-
-
-
-
-

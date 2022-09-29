@@ -3,7 +3,7 @@ import { pull } from 'lodash';
 import fetchRocket from './RocketAPI';
 import loadingStatus from '../reduxConst';
 
-const ACTION_PREPEND = 'SpaceTravelersHub/Mission';
+const ACTION_PREPEND = 'SpaceTravelersHub/Rocktets';
 const initialState = {
   all: [],
   resserved: [],
@@ -14,9 +14,9 @@ const fetch = createAsyncThunk(
   `${ACTION_PREPEND}/FETCH`,
   async () => (await fetchRocket()).data.map((rockets) => ({
     id: rockets.id,
-    name: rockets.name,
-    type: rockets.type,
-    flickr_images: rockets.flickr_images,
+    name: rockets.rocket_name,
+    description: rockets.description,
+    flickrImages: rockets.flickr_images,
   })),
 );
 

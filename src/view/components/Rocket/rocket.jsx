@@ -1,18 +1,20 @@
-/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Rocket = ({ rocket }) => {
   const [reserved, setReserved] = useState(false);
   const {
-    id, rocketName, description, flickrImages,
+    // eslint-disable-next-line no-unused-vars
+    id,
+    name,
+    description,
+    flickrImages,
   } = rocket;
-  const [image, setImage] = useState(flickrImages[0]);
   return (
     <div className="rockets">
-      <img src={image} alt={rocketName} />
+      <img src={flickrImages[0]} alt={name} />
       <div className="rocket-description">
-        <h2>{rocketName}</h2>
+        <h2>{name}</h2>
         <p>
           {reserved ? (<p className="button-reserve">Reserved</p>) : null}
           {description}
@@ -29,7 +31,7 @@ const Rocket = ({ rocket }) => {
 Rocket.propTypes = {
   rocket: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    rocketName: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     flickrImages: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,

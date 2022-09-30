@@ -6,7 +6,6 @@ import * as rocketRedux from '../../../features/rockets/RocketSlice';
 const RocketsList = () => {
   const dispatch = useDispatch();
   const rockets = useSelector(rocketRedux.selectRockets);
-  // const recerved = useSelector(rocketRedux.selectResserved);
 
   useEffect(() => {
     dispatch(rocketRedux.fetch());

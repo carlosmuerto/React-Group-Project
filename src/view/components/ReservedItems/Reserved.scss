@@ -1,0 +1,27 @@
+.reserved-list {
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  .list-container {
+    border: 1px solid #e8e8e8;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+
+    .reserved-item {
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      h5 {
+        color: #515151;
+      }
+    }
+
+    .reserved-item + .reserved-item {
+      border-top: 1px solid #e8e8e8;
+    }
+  }
+}

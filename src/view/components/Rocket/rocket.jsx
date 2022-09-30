@@ -1,26 +1,34 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import * as rocketRedux from '../../../features/rockets/RocketSlice';
 
 const Rocket = ({ rocket }) => {
-  const [reserved, setReserved] = useState(false);
+  const dispatch = useDispatch();
   const {
-    // eslint-disable-next-line no-unused-vars
     id,
     name,
     description,
     flickrImages,
   } = rocket;
+  const reservedRockets = useSelector(rocketRedux.selectResserved);
+
+  const reserved = reservedRockets.includes(id);
+  const onClick = () => {
+    if (reserved) dispatch(rocketRedux.leave(id));
+    else dispatch(rocketRedux.reserve(id));
+  };
   return (
     <div className="rockets">
       <img src={flickrImages[0]} alt={name} />
       <div className="rocket-description">
         <h2>{name}</h2>
-        <p>
+        <div>
           {reserved ? (<p className="button-reserve">Reserved</p>) : null}
-          {description}
-        </p>
-        {/* reserve button */}
-        <button type="button" className={reserved ? 'button-cancel' : 'button-reserved'} onClick={() => setReserved(!reserved)}>
+          <p>
+            {description}
+          </p>
+        </div>
+        <button type="button" className={reserved ? 'button-cancel' : 'button-reserved'} onClick={onClick}>
           {reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
         </button>
       </div>

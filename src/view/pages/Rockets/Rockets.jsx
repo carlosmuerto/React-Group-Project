@@ -1,5 +1,5 @@
 import RocketsList from '../../components/Rocket/rocketsList';
-import './rocket.css';
+import './rocket.scss';
 
 const RocketsPage = () => (
   <div className="rockets-container">
